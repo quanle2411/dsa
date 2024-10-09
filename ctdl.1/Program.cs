@@ -1,143 +1,100 @@
-﻿using System;
+#include <iostream>
+#include <unordered_map>
+#include <string>
+using namespace std;
 
-class SongNode
-{
-    public string SongName;
-    public SongNode Next;
-    public SongNode Prev;
+class Node {
+public:
+    string song;
+    Node* next;
+    Node* prev;
+    Node(string s) : song(s), next(nullptr), prev(nullptr) {}
+};
 
-    public SongNode(string songName)
-    {
-        SongName = songName;
-        Next = null;
-        Prev = null;
-    }
-}
+class MusicPlayer {
+private:
+    Node* head;
+    Node* tail;
+    Node* current;
+    unordered_map<string, Node*> songMap; // for quick lookup of song nodes
 
-class MusicPlayer
-{
-    private SongNode head;
-    private SongNode tail;
-    private SongNode current;
+public:
+    MusicPlayer() : head(nullptr), tail(nullptr), current(nullptr) {}
 
-    public MusicPlayer()
-    {
-        head = null;
-        tail = null;
-        current = null;
-    }
-
-    // Add a song to the end of the playlist
-    public void AddSong(string songName)
-    {
-        SongNode newNode = new SongNode(songName);
-        if (head == null)
-        {
-            head = newNode;
-            tail = newNode;
-            current = newNode;
-        }
-        else
-        {
-            tail.Next = newNode;
-            newNode.Prev = tail;
+    // Add a song to the playlist
+    void addSong(string song) {
+        Node* newNode = new Node(song);
+        if (!head) {
+            head = tail = current = newNode;
+        } else {
+            tail->next = newNode;
+            newNode->prev = tail;
             tail = newNode;
         }
+        songMap[song] = newNode;
     }
 
-    // Move to the next song in the playlist (loop to the first song if at the end)
-    public void PlayNext()
-    {
-        if (current != null)
-        {
-            current = current.Next ?? head; // Loop back to the first song if at the end
-        }
+    // Play next song
+    void playNext() {
+        if (!current) return;
+        current = current->next ? current->next : head;
     }
 
-    // Move to the previous song in the playlist (loop to the last song if at the beginning)
-    public void PlayPrevious()
-    {
-        if (current != null)
-        {
-            current = current.Prev ?? tail; // Loop to the last song if at the beginning
-        }
+    // Play previous song
+    void playPrevious() {
+        if (!current) return;
+        current = current->prev ? current->prev : tail;
     }
 
-    // Remove a song by its name
-    public void RemoveSong(string songName)
-    {
-        SongNode temp = head;
-        while (temp != null)
-        {
-            if (temp.SongName == songName)
-            {
-                if (temp == head)
-                {
-                    head = temp.Next;
-                    if (head != null) head.Prev = null;
-                }
-                else if (temp == tail)
-                {
-                    tail = temp.Prev;
-                    if (tail != null) tail.Next = null;
-                }
-                else
-                {
-                    temp.Prev.Next = temp.Next;
-                    if (temp.Next != null) temp.Next.Prev = temp.Prev;
-                }
-                if (current == temp)
-                {
-                    current = current.Next ?? head; // Update current if it's the removed song
-                }
-                return; // Song found and removed
-            }
-            temp = temp.Next;
-        }
+    // Remove a song from the playlist
+    void removeSong(string song) {
+        if (songMap.find(song) == songMap.end()) return;
+        Node* toDelete = songMap[song];
+
+        if (toDelete == head) head = head->next;
+        if (toDelete == tail) tail = tail->prev;
+
+        if (toDelete->prev) toDelete->prev->next = toDelete->next;
+        if (toDelete->next) toDelete->next->prev = toDelete->prev;
+
+        if (current == toDelete) current = current->next ? current->next : head;
+
+        songMap.erase(song);
+        delete toDelete;
     }
 
     // Display the current playlist
-    public void DisplayPlaylist()
-    {
-        SongNode temp = head;
-        while (temp != null)
-        {
-            Console.Write(temp.SongName + " ");
-            temp = temp.Next;
+    void display() {
+        Node* temp = head;
+        while (temp) {
+            cout << temp->song << " ";
+            temp = temp->next;
         }
-        Console.WriteLine();
+        cout << endl;
     }
+};
+
+int main() {
+    MusicPlayer mp;
+    int n;
+    cin >> n;
+    string command, song;
+    for (int i = 0; i < n; ++i) {
+        cin >> command;
+        if (command == "ADD") {
+            cin >> song;
+            mp.addSong(song);
+        } else if (command == "NEXT") {
+            mp.playNext();
+        } else if (command == "PREV") {
+            mp.playPrevious();
+        } else if (command == "REMOVE") {
+            cin >> song;
+            mp.removeSong(song);
+        } else if (command == "DISPLAY") {
+            mp.display();
+        }
+    }
+    return 0;
 }
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        MusicPlayer player = new MusicPlayer();
-        int n = int.Parse(Console.ReadLine());
-        for (int i = 0; i < n; i++)
-        {
-            string[] input = Console.ReadLine().Split();
-            if (input[0] == "ADD")
-            {
-                player.AddSong(input[1]);
-            }
-            else if (input[0] == "NEXT")
-            {
-                player.PlayNext();
-            }
-            else if (input[0] == "PREV")
-            {
-                player.PlayPrevious();
-            }
-            else if (input[0] == "REMOVE")
-            {
-                player.RemoveSong(input[1]);
-            }
-            else if (input[0] == "DISPLAY")
-            {
-                player.DisplayPlaylist();
-            }
-        }
-    }
-}
