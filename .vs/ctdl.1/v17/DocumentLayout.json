@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\visual studio\\ctdl.1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{25C00498-4279-49BB-B1E6-2708173950DB}|ctdl.3\\ctdl.3.csproj|d:\\visual studio\\ctdl.1\\ctdl.3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{25C00498-4279-49BB-B1E6-2708173950DB}|ctdl.3\\ctdl.3.csproj|solutionrelative:ctdl.3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49B99F86-454A-4328-8496-EABE76DC24B3}|ctdl.2\\ctdl.2.csproj|d:\\visual studio\\ctdl.1\\ctdl.2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49B99F86-454A-4328-8496-EABE76DC24B3}|ctdl.2\\ctdl.2.csproj|solutionrelative:ctdl.2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBBAF9F8-5796-4EC1-81B8-B4AD3D6FD76C}|ctdl.1\\ctdl.1.csproj|d:\\visual studio\\ctdl.1\\ctdl.1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBBAF9F8-5796-4EC1-81B8-B4AD3D6FD76C}|ctdl.1\\ctdl.1.csproj|solutionrelative:ctdl.1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\visual studio\\ctdl.1\\ctdl.3\\Program.cs",
+              "RelativeDocumentMoniker": "ctdl.3\\Program.cs",
+              "ToolTip": "D:\\visual studio\\ctdl.1\\ctdl.3\\Program.cs",
+              "RelativeToolTip": "ctdl.3\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAswEUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T06:58:39.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\visual studio\\ctdl.1\\ctdl.2\\Program.cs",
+              "RelativeDocumentMoniker": "ctdl.2\\Program.cs",
+              "ToolTip": "D:\\visual studio\\ctdl.1\\ctdl.2\\Program.cs",
+              "RelativeToolTip": "ctdl.2\\Program.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAIwEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T06:57:10.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\visual studio\\ctdl.1\\ctdl.1\\Program.cs",
+              "RelativeDocumentMoniker": "ctdl.1\\Program.cs",
+              "ToolTip": "D:\\visual studio\\ctdl.1\\ctdl.1\\Program.cs",
+              "RelativeToolTip": "ctdl.1\\Program.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwI8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T06:55:54.638Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
